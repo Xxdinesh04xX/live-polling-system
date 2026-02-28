@@ -92,3 +92,4 @@ Open: `http://localhost:5173`
 - If a student joins late, their timer starts with remaining time.
 - Refreshing any page restores current poll state.
 - Duplicate voting is blocked at DB level.
+- Teacher can ask a new question only after the timer reaches 0.
