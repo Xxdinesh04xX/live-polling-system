@@ -93,7 +93,15 @@ export const TeacherPage = () => {
         setDuration(draft.duration);
       }
       if (draft.options && draft.options.length >= 2) {
-        setOptions(draft.options);
+        setOptions(
+          draft.options.map((option, index) => ({
+            text: option.text ?? "",
+            isCorrect:
+              typeof option.isCorrect === "boolean"
+                ? option.isCorrect
+                : index === 0,
+          }))
+        );
       }
     } catch {
       sessionStorage.removeItem(draftKey);
