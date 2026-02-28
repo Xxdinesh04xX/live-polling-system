@@ -58,7 +58,7 @@ class PollService {
       } else {
         const totalVotes = await Vote.countDocuments({ pollId: active._id });
         const participantCount = participantService.getActiveCount();
-        if (participantCount > 0 && totalVotes >= participantCount) {
+        if (totalVotes >= participantCount) {
           await this.endPoll(active._id);
         } else {
           throw new ServiceError(
@@ -188,7 +188,7 @@ class PollService {
     this.ensureDbReady();
     const totalVotes = await Vote.countDocuments({ pollId });
     const participantCount = participantService.getActiveCount();
-    if (participantCount > 0 && totalVotes >= participantCount) {
+    if (totalVotes >= participantCount) {
       await this.endPoll(pollId);
     }
   }
