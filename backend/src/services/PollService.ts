@@ -56,11 +56,17 @@ class PollService {
       if (active.endTime.getTime() <= Date.now()) {
         await this.endPoll(active._id);
       } else {
-        throw new ServiceError(
-          "ACTIVE_POLL_EXISTS",
-          409,
-          "An active poll is already running."
-        );
+        const totalVotes = await Vote.countDocuments({ pollId: active._id });
+        const participantCount = participantService.getActiveCount();
+        if (participantCount > 0 && totalVotes >= participantCount) {
+          await this.endPoll(active._id);
+        } else {
+          throw new ServiceError(
+            "ACTIVE_POLL_EXISTS",
+            409,
+            "An active poll is already running."
+          );
+        }
       }
     }
 

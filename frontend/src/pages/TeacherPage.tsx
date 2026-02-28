@@ -120,7 +120,14 @@ export const TeacherPage = () => {
     sessionStorage.setItem(draftKey, payload);
   }, [question, duration, options, createMode, draftKey]);
 
-  const canAskNewQuestion = pollState.poll?.status !== "active";
+  const allAnswered =
+    (participants.length > 0 &&
+      latestResults &&
+      latestResults.totalVotes >= participants.length) ||
+    false;
+  const canAskNewQuestion = pollState.poll
+    ? pollState.poll.status !== "active" || allAnswered
+    : true;
 
   const handleOptionChange = (index: number, value: string) => {
     setOptions((prev) =>
