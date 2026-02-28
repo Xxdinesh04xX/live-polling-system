@@ -32,6 +32,9 @@ Resilient live polling platform with Teacher and Student personas, real-time res
 - Backend: Node.js + Express + Socket.io (TypeScript)
 - DB: MongoDB (Atlas or local)
 
+## Live Demo
+- https://live-polling-system-aabk.vercel.app/ [link](https://live-polling-system-aabk.vercel.app/)
+
 ---
 
 ## Running Locally
