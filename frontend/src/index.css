@@ -1,0 +1,31 @@
+:root {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #373737;
+  background-color: #ffffff;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --primary: #7765da;
+  --primary-dark: #4f0dce;
+  --secondary: #5767d0;
+  --light: #f2f2f2;
+  --muted: #6e6e6e;
+  --border: #e6e6e6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
