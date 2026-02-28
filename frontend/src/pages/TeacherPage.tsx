@@ -121,8 +121,7 @@ export const TeacherPage = () => {
   }, [question, duration, options, createMode, draftKey]);
 
   const allAnswered =
-    Boolean(latestResults) &&
-    latestResults.totalVotes >= participants.length;
+    (latestResults?.totalVotes ?? 0) >= participants.length;
   const canAskNewQuestion = pollState.poll
     ? pollState.poll.status !== "active" || allAnswered
     : true;
